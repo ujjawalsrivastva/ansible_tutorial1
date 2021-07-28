@@ -7,12 +7,37 @@
   - name: update repository index
     yum:
       update_cache: yes
+    when: ansible_distribution == "Centos"
+
 
   - name: install httpd package
     yum:
       name: httpd
       state: latest 
+    when: ansible_distribution == "Centos"
+
   - name: add php support for http
     yum:
-      name: phpans
+      name: php
       state: latest
+    when: ansible_distribution == "Centos"
+
+
+  - name: update repository index
+    yum:
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+
+  - name: install httpd package
+    yum:
+      name: httpd
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+
+  - name: add php support for http
+    yum:
+      name: php
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+

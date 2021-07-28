@@ -12,7 +12,8 @@
     yum:
       name: httpd
       state: absent
+
   - name: add php support for http
     yum:
       name: php
-      state: latest
+      state: absent
